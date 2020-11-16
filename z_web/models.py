@@ -17,7 +17,8 @@ class MovieLabel(models.Model):
 class Movie(models.Model):
     name = models.CharField(max_length=50, verbose_name="电影名称")
     label = models.ManyToManyField(to=MovieLabel, verbose_name="标签")
-    head_pics = models.FileField(upload_to="web/head_pics/", verbose_name="图片")
+    head_pics = models.FileField(upload_to="common/head_pics/", verbose_name="图片")
+    visual_guide = models.FileField(upload_to="common/visual_guide", verbose_name="解说视频", null=True, blank=True)
     movie_url = models.URLField(verbose_name="链接", default="http://")
     validity = models.CharField(max_length=255, verbose_name="电影简介")
     point = models.CharField(max_length=255, verbose_name="观点")

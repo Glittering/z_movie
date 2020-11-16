@@ -9,7 +9,7 @@ from z_web.models import *
 # Create your views here.
 def movies(request):
     page_id = int(request.GET.get("page", 1))
-    mvs = Movie.objects.all()
+    mvs = Movie.objects.all().order_by("-pk")
     
     paginator = Paginator(mvs, 5)
     if page_id <= 0 or page_id > paginator.num_pages:
