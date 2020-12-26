@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('web/', include("z_web.z_web_urls")),
+    path('web/', include("z_web.z_web_urls")),  # 第一层地址，导向自己的url文件
 ]

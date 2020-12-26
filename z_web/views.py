@@ -8,6 +8,11 @@ from z_web.models import *
 
 # Create your views here.
 def movies(request):
+    """
+    视频api
+    :param request:  page
+    :return: json_list
+    """
     page_id = int(request.GET.get("page", 1))
     mvs = Movie.objects.all().order_by("-pk")
     

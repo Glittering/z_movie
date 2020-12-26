@@ -1,7 +1,9 @@
 from django.db import models
 
+
 # Create your models here.
 
+# 电影标签表
 class MovieLabel(models.Model):
     label = models.CharField(max_length=20, verbose_name="label")
 
@@ -14,6 +16,7 @@ class MovieLabel(models.Model):
         verbose_name_plural = verbose_name
 
 
+# 电影表
 class Movie(models.Model):
     name = models.CharField(max_length=50, verbose_name="电影名称")
     label = models.ManyToManyField(to=MovieLabel, verbose_name="标签")
