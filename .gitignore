@@ -3,3 +3,7 @@
 db.sqlite3
 .vscode
 common
+.idea
+templates
+upload
+static

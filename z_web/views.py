@@ -18,8 +18,17 @@ def movies(request):
     
     paginator = Paginator(mvs, 5)
     if page_id <= 0 or page_id > paginator.num_pages:
-        return JsonResponse({"status": "page error."}, safe=False)
+        return JsonResponse({"status": "page error."}, safe=False, status=404)
     page = paginator.page(page_id)
     ser = serialize("json", page)
 
-    return JsonResponse(json.loads(ser), safe=False)
+    return HttpResponse(ser, "application/json")
+
+
+def index(request):
+    """
+    返回我的get页面
+    :param request:
+    :return:
+    """
+    return render(request, "html/get.html")
